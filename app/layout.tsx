@@ -3,15 +3,18 @@ import "./globals.css";
 
 const repository = process.env.GITHUB_REPOSITORY?.split("/") ?? [];
 const [repositoryOwner, repositoryName] = repository;
+const customDomain = process.env.GITHUB_PAGES_CUSTOM_DOMAIN?.trim();
 const isAccountSite =
   repositoryOwner && repositoryName === `${repositoryOwner}.github.io`;
 const repositoryPath =
-  repositoryOwner && repositoryName && !isAccountSite
+  !customDomain && repositoryOwner && repositoryName && !isAccountSite
     ? `/${repositoryName}`
     : "";
-const siteUrl = repositoryOwner
-  ? `https://${repositoryOwner}.github.io${repositoryPath}`
-  : "http://localhost:3000";
+const siteUrl = customDomain
+  ? `https://${customDomain}`
+  : repositoryOwner
+    ? `https://${repositoryOwner}.github.io${repositoryPath}`
+    : "http://localhost:3000";
 const description =
   "墨盒 AI 导航，收录国内外常用的写作、图片、视频、音频、编程与办公效率工具。";
 

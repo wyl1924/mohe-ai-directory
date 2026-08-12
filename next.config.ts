@@ -1,12 +1,23 @@
 import type { NextConfig } from "next";
 
-const [repositoryOwner = "", repositoryName = ""] =
-  process.env.GITHUB_REPOSITORY?.split("/") ?? [];
-const isAccountRootSite =
-  repositoryName.toLowerCase() ===
-  `${repositoryOwner.toLowerCase()}.github.io`;
-const pagesBasePath =
-  repositoryName && !isAccountRootSite ? `/${repositoryName}` : "";
+export function resolvePagesBasePath(
+  repository = "",
+  customDomain = "",
+) {
+  const [repositoryOwner = "", repositoryName = ""] = repository.split("/");
+  const isAccountRootSite =
+    repositoryName.toLowerCase() ===
+    `${repositoryOwner.toLowerCase()}.github.io`;
+
+  return repositoryName && !isAccountRootSite && !customDomain.trim()
+    ? `/${repositoryName}`
+    : "";
+}
+
+const pagesBasePath = resolvePagesBasePath(
+  process.env.GITHUB_REPOSITORY,
+  process.env.GITHUB_PAGES_CUSTOM_DOMAIN,
+);
 
 const nextConfig: NextConfig = {
   output: "export",

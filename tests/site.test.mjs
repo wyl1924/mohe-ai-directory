@@ -1,8 +1,33 @@
 import assert from "node:assert/strict";
+import { execFile } from "node:child_process";
 import { access, readFile } from "node:fs/promises";
+import { promisify } from "node:util";
 import test from "node:test";
 
 const projectRoot = new URL("../", import.meta.url);
+const execFileAsync = promisify(execFile);
+
+test("resolves GitHub Pages paths for custom and default domains", async () => {
+  const configUrl = new URL("../next.config.ts", import.meta.url).href;
+  const script = `
+    import { resolvePagesBasePath } from ${JSON.stringify(configUrl)};
+    process.stdout.write(JSON.stringify([
+      resolvePagesBasePath("owner/project", "mohe1924.cn"),
+      resolvePagesBasePath("owner/project"),
+      resolvePagesBasePath("owner/owner.github.io"),
+      resolvePagesBasePath(),
+    ]));
+  `;
+  const { stdout } = await execFileAsync(process.execPath, [
+    "--no-warnings",
+    "--experimental-strip-types",
+    "--input-type=module",
+    "--eval",
+    script,
+  ]);
+
+  assert.deepEqual(JSON.parse(stdout), ["", "/project", "", ""]);
+});
 
 test("exports the 墨盒 directory as a static site", async () => {
   await access(new URL("../out/index.html", import.meta.url));
@@ -84,7 +109,14 @@ test("contains no server-only application surfaces", async () => {
     "utf8",
   );
   assert.doesNotMatch(packageSource, /cloudflare|wrangler|vinext|drizzle/i);
-  await access(new URL("../.github/workflows/pages.yml", import.meta.url));
+  const workflowSource = await readFile(
+    new URL("../.github/workflows/pages.yml", import.meta.url),
+    "utf8",
+  );
+  assert.match(
+    workflowSource,
+    /GITHUB_PAGES_CUSTOM_DOMAIN:\s*mohe1924\.cn/,
+  );
   await access(new URL("../out/.nojekyll", import.meta.url));
   await access(projectRoot);
 });

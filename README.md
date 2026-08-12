@@ -48,4 +48,4 @@ npm run preview
 2. GitHub Actions 自动安装依赖并运行静态构建。
 3. `out/` 会自动发布到 GitHub Pages。
 
-工作流会自动识别仓库名并配置 GitHub Pages 子路径，无需手工修改图片地址。首次创建仓库后，请在仓库 **Settings → Pages** 中确认发布来源为 **GitHub Actions**。
+生产工作流为自定义域名 `mohe1924.cn` 使用根路径；未设置自定义域名时，仍会自动识别仓库名并配置 GitHub Pages 子路径，本地构建也保持根路径。首次部署前，请在仓库 **Settings → Pages** 中确认发布来源为 **GitHub Actions**，填写自定义域名 `mohe1924.cn`，并按 GitHub 提示完成 DNS 配置。

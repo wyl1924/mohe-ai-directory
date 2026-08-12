@@ -37,6 +37,7 @@ jobs:
         run: npm run build
         env:
           GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_PAGES_CUSTOM_DOMAIN: mohe1924.cn
           NEXT_TELEMETRY_DISABLED: 1
 
       - name: Upload Pages artifact
