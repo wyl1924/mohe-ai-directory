@@ -1,0 +1,552 @@
+.page {
+  --accent: #f04b46;
+  --accent-strong: #db3732;
+  --accent-soft: #fff0ef;
+  --page: #f6f3ef;
+  --surface: #fffdfb;
+  --surface-muted: #faf6f2;
+  --text: #292a2f;
+  --text-soft: #686b73;
+  --text-faint: #92959c;
+  --border: #e9e1d9;
+  --shadow: 0 18px 52px rgba(86, 55, 42, 0.1);
+  background:
+    radial-gradient(circle at 82% 5%, rgba(240, 75, 70, 0.11), transparent 26rem),
+    radial-gradient(circle at 5% 24%, rgba(236, 166, 104, 0.12), transparent 23rem),
+    var(--page);
+  color: var(--text);
+  min-height: 100dvh;
+  overflow-x: clip;
+  padding: 32px 24px 48px;
+}
+
+.shell {
+  margin: 0 auto;
+  max-width: 1180px;
+  width: 100%;
+}
+
+.breadcrumbs {
+  align-items: center;
+  color: var(--text-faint);
+  display: flex;
+  font-size: 13px;
+  gap: 9px;
+  margin-bottom: 22px;
+  min-width: 0;
+}
+
+.breadcrumbs a {
+  align-items: center;
+  border-radius: 8px;
+  color: var(--text-soft);
+  display: inline-flex;
+  gap: 4px;
+  min-height: 44px;
+  padding: 0 6px;
+  transition: color 180ms ease, background-color 180ms ease;
+}
+
+.breadcrumbs a:hover {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.breadcrumbs svg {
+  height: 18px;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+  width: 18px;
+}
+
+.breadcrumbs > span:last-child {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hero {
+  background: color-mix(in srgb, var(--surface) 95%, transparent);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  padding: clamp(24px, 4vw, 48px);
+}
+
+.identity {
+  align-items: center;
+  display: flex;
+  gap: 24px;
+  min-width: 0;
+}
+
+.logo {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  box-shadow: 0 10px 28px rgba(75, 49, 37, 0.1);
+  flex: 0 0 104px;
+  height: 104px;
+  object-fit: contain;
+  padding: 10px;
+  width: 104px;
+}
+
+.heading {
+  min-width: 0;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 10px;
+}
+
+.tags span {
+  background: var(--accent-soft);
+  border: 1px solid color-mix(in srgb, var(--accent) 18%, transparent);
+  border-radius: 999px;
+  color: var(--accent-strong);
+  font-size: 12px;
+  font-weight: 650;
+  line-height: 1.3;
+  padding: 6px 10px;
+}
+
+.heading h1 {
+  font-size: clamp(28px, 4.3vw, 48px);
+  letter-spacing: -0.035em;
+  line-height: 1.16;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.domain {
+  color: var(--text-faint);
+  font-size: 14px;
+  margin: 10px 0 0;
+  overflow-wrap: anywhere;
+}
+
+.descriptionBlock {
+  border-top: 1px solid var(--border);
+  margin-top: 32px;
+  padding-top: 28px;
+}
+
+.descriptionBlock h2 {
+  font-size: 16px;
+  margin: 0 0 10px;
+}
+
+.descriptionBlock p {
+  color: var(--text-soft);
+  font-size: 16px;
+  line-height: 1.85;
+  margin: 0;
+  max-width: 78ch;
+  overflow-wrap: anywhere;
+}
+
+.actionRow {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.primaryAction {
+  align-items: center;
+  background: var(--accent);
+  border-radius: 12px;
+  box-shadow: 0 11px 24px rgba(240, 75, 70, 0.22);
+  color: #fff;
+  display: inline-flex;
+  font-size: 15px;
+  font-weight: 700;
+  gap: 8px;
+  justify-content: center;
+  min-height: 50px;
+  min-width: 142px;
+  padding: 0 20px;
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.primaryAction:hover {
+  background: var(--accent-strong);
+  transform: translateY(-2px);
+}
+
+.primaryAction svg {
+  height: 18px;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+  width: 18px;
+}
+
+.actionRow > span {
+  color: var(--text-faint);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.notice {
+  background: color-mix(in srgb, var(--accent-soft) 70%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--accent) 16%, var(--border));
+  border-radius: 14px;
+  display: grid;
+  gap: 5px 18px;
+  grid-template-columns: auto 1fr;
+  margin-top: 18px;
+  padding: 18px 20px;
+}
+
+.notice strong {
+  color: var(--accent-strong);
+  font-size: 13px;
+}
+
+.notice p {
+  color: var(--text-soft);
+  font-size: 13px;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.relatedSection {
+  margin-top: 44px;
+}
+
+.sectionHeading {
+  align-items: flex-end;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.sectionHeading span {
+  color: var(--accent);
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+
+.sectionHeading h2 {
+  font-size: 22px;
+  margin: 0;
+}
+
+.sectionHeading > a {
+  align-items: center;
+  border-radius: 8px;
+  color: var(--text-soft);
+  display: flex;
+  font-size: 13px;
+  min-height: 44px;
+  padding: 0 8px;
+}
+
+.sectionHeading > a:hover {
+  color: var(--accent);
+}
+
+.relatedGrid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.relatedCard {
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  display: flex;
+  gap: 12px;
+  min-height: 88px;
+  min-width: 0;
+  padding: 14px;
+  transition: border-color 180ms ease, box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.relatedCard:hover {
+  border-color: color-mix(in srgb, var(--accent) 38%, var(--border));
+  box-shadow: 0 15px 30px rgba(75, 49, 37, 0.1);
+  transform: translateY(-3px);
+}
+
+.relatedCard img {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  flex: 0 0 48px;
+  height: 48px;
+  object-fit: contain;
+  width: 48px;
+}
+
+.relatedCard > span {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.relatedCard strong,
+.relatedCard small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.relatedCard strong {
+  font-size: 14px;
+}
+
+.relatedCard small {
+  color: var(--text-soft);
+  font-size: 11px;
+  margin-top: 5px;
+}
+
+.relatedCard > svg {
+  color: var(--text-faint);
+  flex: 0 0 18px;
+  height: 18px;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+  transform: rotate(180deg);
+  width: 18px;
+}
+
+.footer {
+  border-top: 1px solid var(--border);
+  margin-top: 48px;
+  padding-top: 22px;
+}
+
+.footer > a {
+  align-items: center;
+  display: inline-flex;
+  gap: 9px;
+  min-height: 48px;
+}
+
+.footer img {
+  height: 42px;
+  object-fit: contain;
+  width: 42px;
+}
+
+.footer span {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer strong {
+  font-size: 15px;
+}
+
+.footer small {
+  color: var(--text-faint);
+  font-size: 10px;
+  margin-top: 3px;
+}
+
+.missing {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  margin: 15vh auto 0;
+  max-width: 520px;
+  padding: 44px 28px;
+  text-align: center;
+}
+
+.missing h1 {
+  margin: 0;
+}
+
+.missing p {
+  color: var(--text-soft);
+  margin: 10px 0 22px;
+}
+
+.missing a {
+  align-items: center;
+  background: var(--accent);
+  border-radius: 10px;
+  color: #fff;
+  display: inline-flex;
+  min-height: 46px;
+  padding: 0 18px;
+}
+
+.page :where(a):focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--accent) 62%, transparent);
+  outline-offset: 3px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .page {
+    --accent: #ff716c;
+    --accent-strong: #ff8a86;
+    --accent-soft: #3a2827;
+    --page: #171615;
+    --surface: #222120;
+    --surface-muted: #2a2826;
+    --text: #f4f1ee;
+    --text-soft: #bbb5af;
+    --text-faint: #918b85;
+    --border: #3a3632;
+    --shadow: 0 18px 52px rgba(0, 0, 0, 0.28);
+    color-scheme: dark;
+  }
+}
+
+@media (max-width: 760px) {
+  .page {
+    padding: 18px 14px 34px;
+  }
+
+  .breadcrumbs {
+    gap: 4px;
+    margin-bottom: 12px;
+  }
+
+  .breadcrumbs > span:not(:last-child),
+  .breadcrumbs a:nth-of-type(2) {
+    display: none;
+  }
+
+  .hero {
+    border-radius: 18px;
+    padding: 22px 18px;
+  }
+
+  .identity {
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .logo {
+    border-radius: 17px;
+    flex-basis: 72px;
+    height: 72px;
+    padding: 7px;
+    width: 72px;
+  }
+
+  .heading h1 {
+    font-size: clamp(23px, 7vw, 31px);
+  }
+
+  .tags {
+    margin-bottom: 7px;
+  }
+
+  .tags span {
+    font-size: 10px;
+    padding: 4px 8px;
+  }
+
+  .domain {
+    font-size: 12px;
+    margin-top: 7px;
+  }
+
+  .descriptionBlock {
+    margin-top: 24px;
+    padding-top: 22px;
+  }
+
+  .descriptionBlock p {
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  .actionRow {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 22px;
+  }
+
+  .primaryAction {
+    min-height: 50px;
+    width: 100%;
+  }
+
+  .notice {
+    display: block;
+    padding: 16px;
+  }
+
+  .notice p {
+    margin-top: 5px;
+  }
+
+  .relatedSection {
+    margin-top: 34px;
+  }
+
+  .sectionHeading {
+    align-items: flex-start;
+  }
+
+  .sectionHeading h2 {
+    font-size: 19px;
+  }
+
+  .sectionHeading > a {
+    font-size: 12px;
+    padding: 0;
+  }
+
+  .relatedGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .relatedCard {
+    min-height: 82px;
+  }
+}
+
+@media (max-width: 370px) {
+  .identity {
+    flex-direction: column;
+  }
+
+  .heading {
+    width: 100%;
+  }
+
+  .sectionHeading {
+    display: block;
+  }
+
+  .sectionHeading > a {
+    margin-top: 6px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page *,
+  .page *::before,
+  .page *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

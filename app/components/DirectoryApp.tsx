@@ -115,17 +115,15 @@ function ToolImage({
 }
 
 function ToolCard({ card }: { card: DirectoryCard }) {
-  const destination = safeToolUrl(card.url);
-  const detail = destination;
+  const officialUrl = safeToolUrl(card.url);
+  const destination =
+    card.id === undefined || card.id === null
+      ? officialUrl
+      : withBasePath(`/tools/${encodeURIComponent(String(card.id))}/`);
 
   return (
     <article className="tool-card" title={card.description || card.title}>
-      <a
-        className="tool-card-main"
-        href={destination}
-        rel="noopener noreferrer"
-        target="_blank"
-      >
+      <a className="tool-card-main" href={destination}>
         <span className="tool-icon">
           <ToolImage imagePath={card.imagePath} title={card.title} />
         </span>
@@ -135,12 +133,12 @@ function ToolCard({ card }: { card: DirectoryCard }) {
         </span>
       </a>
       <a
-        aria-label={`查看 ${card.title} 详情`}
+        aria-label={`访问 ${card.title} 官网`}
         className="tool-detail"
-        href={detail}
+        href={officialUrl}
         rel="noopener noreferrer"
         target="_blank"
-        title="查看详情"
+        title="访问官网"
       >
         <Icon name="external" size={16} />
       </a>
