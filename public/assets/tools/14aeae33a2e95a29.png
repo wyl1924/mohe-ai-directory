@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Mirasim">
+  <!--
+    标签页图标 = 商标本体。Next 的 app 约定会自动接手这个文件并生成 <link rel="icon">。
+
+    几何逐值照 marks.tsx 的 MirasimBadge：八根条、原始坐标、整体缩到 0.86 居中，
+    外面一枚深色圆盘。圆盘不是装饰——浏览器标签底色深浅不定，商标左半是墨色，
+    没有自己的底就会在深色标签里消失；这和 MirasimBadge 存在的理由是同一条。
+
+    条是白的、不是品牌紫阶：紫色在 16px 的深底上会糊成一团看不出根数，
+    而白条在两种标签栏下都数得清。字标本体（含紫阶）仍在页面里用，见 marks.tsx。
+  -->
+  <circle cx="256" cy="256" r="256" fill="#0B0B12"/>
+  <circle cx="256" cy="256" r="252" fill="none" stroke="rgba(255,255,255,0.16)" stroke-width="6"/>
+  <g transform="translate(256 256) scale(0.86) translate(-256 -256)" fill="#FFFFFF">
+    <rect x="56" y="81" width="16.9576" height="350" rx="8.4788"/>
+    <rect x="106.873" y="128" width="15.9601" height="253" rx="7.98005"/>
+    <rect x="155.751" y="206" width="16.9576" height="150" rx="8.4788"/>
+    <rect x="202.634" y="287" width="16.9576" height="50" rx="8.4788"/>
+    <rect x="292.409" y="287" width="16.9576" height="50" rx="8.4788"/>
+    <rect x="339.292" y="206" width="16.9576" height="150" rx="8.4788"/>
+    <rect x="389.167" y="130" width="16.9576" height="251" rx="8.4788"/>
+    <rect x="439.042" y="81" width="16.9576" height="350" rx="8.4788"/>
+  </g>
+</svg>
