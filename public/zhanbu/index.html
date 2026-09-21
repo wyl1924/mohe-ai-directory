@@ -363,11 +363,23 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 .rec .rx{font-size:11px;color:var(--dim2);flex:0 0 auto;cursor:pointer;padding:4px 6px}
 .empty{text-align:center;color:var(--dim2);font-size:12.5px;padding:26px 0}
 
+/* ---------- 档案 / 打赏 ---------- */
+.reward-card{padding-top:8px;padding-bottom:8px}
+.reward-summary{min-height:44px;margin:0;cursor:pointer;list-style:none;user-select:none}
+.reward-summary::-webkit-details-marker{display:none}
+.reward-summary::after{content:"展开";margin-left:2px;font-size:10px;color:var(--dim2);letter-spacing:.08em;font-family:var(--sans)}
+.reward-card[open] .reward-summary{margin-bottom:12px}
+.reward-card[open] .reward-summary::after{content:"收起"}
+.reward-body{display:flex;flex-direction:column;align-items:center;gap:12px;padding:0 2px 8px}
+.reward-body .muted{align-self:stretch;text-align:center}
+.reward-body img{display:block;width:min(100%,420px);height:auto;border-radius:12px;background:#fff;border:1px solid rgba(212,175,55,.32)}
+
 .fade{animation:fade .34s ease}
 @keyframes fade{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
 .shake{animation:shake .5s}
 @keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-7px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(3px)}}
 .loading{text-align:center;padding:30px;color:var(--dim);font-family:var(--serif);letter-spacing:.3em;font-size:13px}
+.boot-loading{padding-top:32vh}
 
 /* ---- 所问何事 ---- */
 .pick{display:flex;gap:6px;overflow-x:auto;padding:2px 0 8px;scrollbar-width:none}
@@ -562,7 +574,7 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 </style>
 </head>
 <body>
-<div id="app"><main id="view"></main></div>
+<div id="app"><main id="view"><div class="loading boot-loading" role="status">页 面 加 载 中 …</div></main></div>
 <script>
 var Astro = (function(){
 var exports = {};
@@ -15395,6 +15407,14 @@ var YAO_COIN_BACK = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJAAAACQCAYAA
       <div class="rt"><b>${esc(r.title)}</b><span>${esc(r.when)}　${esc(r.name || '')}</span></div>
       <div class="rx" data-act="del" data-val="${i}">删除</div></div>`).join('');
     h += `</div>`;
+    h += `<details class="card reward-card">
+      <summary class="ttl reward-summary">打赏<small>微信赞赏码</small></summary>
+      <div class="reward-body">
+        <div class="muted">如果墨盒玄机对你有帮助，感谢你的支持。</div>
+        <img src="./wechat-reward.jpg" alt="微信赞赏码" width="1242" height="1692" loading="lazy" decoding="async">
+        <div class="mini center">打开微信扫码，或长按图片保存后识别</div>
+      </div>
+    </details>`;
     h += `<div class="card"><div class="ttl">关于</div>
       <div class="mini">
       · 节气：由 astronomy-engine 搜索太阳视黄经求得，角秒级精度，1900–2100 年可靠。<br>

@@ -52,6 +52,17 @@ test("exports the zhanbu site at /zhanbu/", async () => {
 
   assert.equal(exportedHtml, sourceHtml);
   assert.match(exportedHtml, /<title>墨盒玄机 · 周易排盘<\/title>/);
+  assert.match(exportedHtml, /打赏/);
+  assert.match(exportedHtml, /\.\/wechat-reward\.jpg/);
+  assert.match(exportedHtml, /页 面 加 载 中 …/);
+
+  const sourceReward = await readFile(
+    new URL("../public/zhanbu/wechat-reward.jpg", import.meta.url),
+  );
+  const exportedReward = await readFile(
+    new URL("../out/zhanbu/wechat-reward.jpg", import.meta.url),
+  );
+  assert.deepEqual(exportedReward, sourceReward);
 });
 
 test("exports static tool detail pages linked from the homepage", async () => {
