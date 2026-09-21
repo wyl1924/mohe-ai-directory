@@ -40,6 +40,20 @@ test("exports the 墨盒 directory as a static site", async () => {
   assert.doesNotMatch(html, /\/api\/|管理入口|soweads|wwads|histats|51\.la/i);
 });
 
+test("exports the zhanbu site at /zhanbu/", async () => {
+  const sourceHtml = await readFile(
+    new URL("../public/zhanbu/index.html", import.meta.url),
+    "utf8",
+  );
+  const exportedHtml = await readFile(
+    new URL("../out/zhanbu/index.html", import.meta.url),
+    "utf8",
+  );
+
+  assert.equal(exportedHtml, sourceHtml);
+  assert.match(exportedHtml, /<title>墨盒玄机 · 周易排盘<\/title>/);
+});
+
 test("exports static tool detail pages linked from the homepage", async () => {
   const source = await readFile(
     new URL("../data/site-data.json", import.meta.url),
