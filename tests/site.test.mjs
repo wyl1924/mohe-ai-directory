@@ -52,7 +52,7 @@ test("exports the zhanbu site at /zhanbu/", async () => {
 
   assert.equal(exportedHtml, sourceHtml);
   assert.match(exportedHtml, /<title>墨盒玄机 · 周易排盘<\/title>/);
-  assert.match(exportedHtml, /打赏/);
+  assert.match(exportedHtml, /<details class="card reward-card" open>/);
   assert.match(exportedHtml, /\.\/wechat-reward\.jpg/);
   assert.match(exportedHtml, /页 面 加 载 中 …/);
 
