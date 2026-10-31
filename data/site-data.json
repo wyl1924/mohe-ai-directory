@@ -24948,6 +24948,19 @@
       "imagePath": "/assets/tools/4eb648845d2c013f.png",
       "position": 1856,
       "visible": true
+    },
+    {
+      "id": 1858,
+      "sourceId": "",
+      "categorySlug": "term-1077",
+      "subcategorySlug": "tab-1077-11",
+      "title": "agent-qa",
+      "description": "vostride 的网页、Android 与 iOS 自然语言测试工具，结合 memidex 持久记忆、经验证的自我改进与可复查证据。支持 CLI/MCP；模型服务费用另计，许可证为 FSL-1.1-ALv2。",
+      "url": "https://www.vostride.com/",
+      "detailUrl": "https://www.vostride.com/",
+      "imagePath": "/assets/tools/agent-qa.png",
+      "position": 1857,
+      "visible": true
     }
   ],
   "quick": [
