@@ -99,7 +99,7 @@ test("keeps the full JSON catalog local and ad-free", async () => {
   const data = JSON.parse(source);
 
   assert.equal(data.categories.length, 33);
-  assert.equal(data.cards.length, 1857);
+  assert.equal(data.cards.length, 1858);
   const visibleIds = new Set();
   for (const card of data.cards) {
     assert.match(card.imagePath, /^\/(?:assets\/tools|brand)\//);
